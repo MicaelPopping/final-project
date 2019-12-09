@@ -19,6 +19,11 @@ class Plane {
             u_matrix: m4.identity(),
         };
 
+        this.object = null;
+    }
+
+    start() {
+        
         this.object = new ObjectInfo([500, 0, 500], [0, 0, 0]);
     }
 

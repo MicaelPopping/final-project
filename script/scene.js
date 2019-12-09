@@ -14,6 +14,10 @@ class Scene {
         this.deltaTime = null;
             // View.
         this.viewProjectionMatrix = null;
+
+        this.plane.start();
+        this.sphere.start();
+        this.obstacle.start();
     }
 
     process(now) {
@@ -47,8 +51,12 @@ class Scene {
     }
 
     processModels() {
+
+        // Lógica do jogo.
+        const sphere = this.sphere.object;
         
-        
+        sphere.translate[2] += this.then * 0.1;
+        sphere.rotate[0] = this.then * 100;
     }
 
     processCamera() {

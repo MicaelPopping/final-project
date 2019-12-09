@@ -13,6 +13,11 @@ class Sphere {
             u_matrix: m4.identity(),
         };
 
+        this.object = null;
+    }
+
+    start() {
+
         this.object = new ObjectInfo([0, 1, 5], [0, 0, 90]);
     }
 
@@ -35,9 +40,6 @@ class Sphere {
 
         gl.useProgram(this.programInfo.program);
         gl.bindVertexArray(this.vao);
-
-        //this.translate[0] += then * 0.1;
-        //this.rotate[0] = then * 100;
 
         this.uniforms.u_matrix = this.computeMatrix(viewProjectionMatrix);
 

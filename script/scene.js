@@ -5,6 +5,7 @@ class Scene {
         this.gl = gl;
             // Models.
         this.sphere = new Sphere(gl);
+        this.obstacle = new Obstacle(gl);
             //Cameras.
         this.camera = [null, new CameraSphere(gl)];
             // Time.
@@ -55,5 +56,6 @@ class Scene {
 
     draw() {
         this.sphere.draw(this.viewProjectionMatrix);
+        this.obstacle.draw(this.viewProjectionMatrix);
     } 
 }

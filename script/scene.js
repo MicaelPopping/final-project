@@ -8,7 +8,8 @@ class Scene {
         this.sphere = new Sphere(gl);
         this.obstacle = new Obstacle(gl);
             //Cameras.
-        this.camera = [null, new CameraSphere(gl)];
+        this.camera = [null, new CameraSphere(gl), new CameraTop(gl)];
+        this.current_camera = 2;
             // Time.
         this.then = null;
         this.deltaTime = null;
@@ -60,8 +61,8 @@ class Scene {
     }
 
     processCamera() {
-        this.camera[1].process(this.sphere.object);
-        this.viewProjectionMatrix = this.camera[1].viewProjectionMatrix();
+        this.camera[this.current_camera].process(this.sphere.object);
+        this.viewProjectionMatrix = this.camera[this.current_camera].viewProjectionMatrix();
     }
 
     draw() {

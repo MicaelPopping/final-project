@@ -6,7 +6,7 @@ class Scene {
             // Models.
 
             //Cameras.
-
+        this.camera = [null, new CameraSphere(gl)];
             // Time.
         this.then = null;
         this.deltaTime = null;
@@ -49,7 +49,7 @@ class Scene {
     }
 
     processCamera() {
-
+        
     }
 
     draw() {

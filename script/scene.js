@@ -4,6 +4,7 @@ class Scene {
             // Context.
         this.gl = gl;
             // Models.
+        this.plane = new Plane(gl);
         this.sphere = new Sphere(gl);
         this.obstacle = new Obstacle(gl);
             //Cameras.
@@ -46,7 +47,8 @@ class Scene {
     }
 
     processModels() {
-        // Lógica do jogo.
+        
+        
     }
 
     processCamera() {
@@ -55,6 +57,7 @@ class Scene {
     }
 
     draw() {
+        this.plane.draw(this.viewProjectionMatrix);
         this.sphere.draw(this.viewProjectionMatrix);
         this.obstacle.draw(this.viewProjectionMatrix);
     } 

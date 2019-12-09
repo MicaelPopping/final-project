@@ -4,7 +4,7 @@ class Scene {
             // Context.
         this.gl = gl;
             // Models.
-
+        this.sphere = new Sphere(gl);
             //Cameras.
         this.camera = [null, new CameraSphere(gl)];
             // Time.
@@ -49,9 +49,11 @@ class Scene {
     }
 
     processCamera() {
-        
+        this.camera[1].process(this.sphere.object);
+        this.viewProjectionMatrix = this.camera[1].viewProjectionMatrix();
     }
 
     draw() {
+        this.sphere.draw(this.viewProjectionMatrix);
     } 
 }

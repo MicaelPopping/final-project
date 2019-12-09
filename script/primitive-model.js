@@ -28,6 +28,9 @@ void main() {
 }
 `;
 
+/**
+ * Essa ideia não funcionou.
+ */
 class PrimitiveModel {
 
     constructor(gl, bufferInfo, color) {

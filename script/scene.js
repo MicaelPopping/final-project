@@ -9,7 +9,7 @@ class Scene {
         this.obstacle = new Obstacle(gl);
             //Cameras.
         this.camera = [null, new CameraSphere(gl), new CameraTop(gl)];
-        this.current_camera = 2;
+        this.current_camera = 1;
             // Time.
         this.then = null;
         this.deltaTime = null;

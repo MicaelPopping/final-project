@@ -7,7 +7,7 @@ class Scene {
         this.plane = new Plane(gl);
         this.sphere = new Sphere(gl);
         this.obstacle = new Obstacle(gl);
-            //Cameras.
+            // Cameras.
         this.camera = [null, new CameraSphere(gl), new CameraTop(gl)];
         this.current_camera = 1;
             // Time.
@@ -15,6 +15,8 @@ class Scene {
         this.deltaTime = null;
             // View.
         this.viewProjectionMatrix = null;
+            // Input.
+        this.keypress = '';
 
         this.plane.start();
         this.sphere.start();
@@ -56,8 +58,8 @@ class Scene {
         // Lógica do jogo.
         const sphere = this.sphere.object;
         
-        sphere.translate[2] += this.then * 0.1;
-        sphere.rotate[0] = this.then * 100;
+        sphere.translate[2] += this.deltaTime * 10;
+        sphere.rotate[0] += this.deltaTime * 300;
     }
 
     processCamera() {
@@ -70,4 +72,13 @@ class Scene {
         this.sphere.draw(this.viewProjectionMatrix);
         this.obstacle.draw(this.viewProjectionMatrix);
     } 
+
+    processInput(key) {
+
+        if(key == '1')
+            this.current_camera = 1;
+
+        else if(key == '2')
+            this.current_camera = 2
+    }
 }

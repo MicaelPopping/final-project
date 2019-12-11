@@ -15,6 +15,11 @@ function main() {
 
     const scene = new Scene(gl);
 
+    document.addEventListener('keypress', (keypress) => {
+
+        scene.processInput(keypress.key);
+    });
+
     requestAnimationFrame(drawScene);
         // Draw.
     function drawScene(now) {

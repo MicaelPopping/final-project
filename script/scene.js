@@ -16,7 +16,7 @@ class Scene {
             // View.
         this.viewProjectionMatrix = null;
             // Input.
-        this.keypress = '';
+        this.playing = false;
 
         this.plane.start();
         this.sphere.start();
@@ -24,6 +24,9 @@ class Scene {
     }
 
     process(now) {
+
+        if(this.playing == false)
+            return;
 
         this.preprocessing();
         this.processTime(now);
@@ -55,10 +58,26 @@ class Scene {
 
     processModels() {
 
-        // Processamento dos objetos. &  Lógica do jogo.
         this.sphere.process(this.deltaTime, this.then);
         
-        
+        // Verificando colisões.
+        let obstacles = this.obstacle.object;
+        let sphere = this.sphere.object;
+        let index = this.obstacle.index;
+
+        for(let i = index; i < obstacles.length; i++)  {
+
+            let obstacle = obstacles[i];
+            let box = [obstacle.translate[2] - 0.5, obstacle.translate[1] + 0.5, obstacle.translate[2] + 0.5];
+
+            if(sphere.translate[2] > box[0] && sphere.translate[1] < box[1] && sphere.translate[2] < box[2]) {
+
+                this.playing = false;
+                document.getElementById("info").innerHTML = "<h1>Você Perdeu!\nPressione enter para jogar novamente.<h1>";
+                this.sphere.start();
+                this.sphere.animation = null;
+            }
+        }
     }
 
     processCamera() {
@@ -81,6 +100,12 @@ class Scene {
             this.current_camera = 1;
 
         else if(key == '2')
-            this.current_camera = 2
+            this.current_camera = 2 
+
+        else if(key == 'Enter') {
+
+            this.playing = true;
+            let info = document.getElementById('info').innerHTML = "";
+        }
     }
 }

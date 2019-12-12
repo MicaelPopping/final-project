@@ -1,27 +1,27 @@
 class JumpAnimation {
 
-    constructor(distance, time, jumpLevel, initialTime) {
+    constructor(initialPosition, finalPosition, initialTime, time, jumpLevel) {
 
+        this.initialPosition = initialPosition;
+        this.finalPosition = finalPosition;
+        this.initialTime = initialTime;
+        this.finalTime = initialTime +  time;
         this.time = time;
-        this.initial = initialTime;
-        this.final = initialTime + time;
-        this.currentDistance = 0;
-        this.currentHeight = 0;
-        this.curve = new BSpline([[0, 1],  [distance / 2, jumpLevel], [distance, 1]], 3);
+        this.currentPosition = null;
+
+        let controlPoint = [0, jumpLevel, (initialPosition[2] + finalPosition[2]) / 2];
+        this.curve = new BSpline([initialPosition, controlPoint, finalPosition], 3);
     }
 
     process(then) {
 
-        if(then >= this.final)
-            return then - this.finalPosition;
+        if(then >= this.finalTime)
+            return then - this.finalTime;
         
         let deltaTime = then - this.initialTime;
         let t = deltaTime / this.time;
 
-        let result =  this.curve.calcAt(t);
-        
-        this.currentDistance = result[0];
-        this.currentHeight = result[1];
+        this.currentPosition =  this.curve.calcAt(t);
 
         return -1;
     }

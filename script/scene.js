@@ -56,7 +56,7 @@ class Scene {
     processModels() {
 
         // Processamento dos objetos. &  Lógica do jogo.
-        this.sphere.process(this.then, this.deltaTime);
+        this.sphere.process(this.deltaTime, this.then);
         
         
     }
@@ -74,11 +74,8 @@ class Scene {
 
     processInput(key) {
 
-        if(key == ' ') {
-
-            console.log('Pegou espaço.');
+        if(key == ' ')
             this.sphere.startJumpAnimation(this.then);
-        }
 
         else if(key == '1')
             this.current_camera = 1;

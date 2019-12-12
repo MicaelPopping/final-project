@@ -19,26 +19,26 @@ class Obstacle {
     start() {
 
         this.object = [
-            new ObjectInfo([0, 1, 10], [0, 0, 0]),
-            new ObjectInfo([0, 1, 15], [0, 0, 0]),
-            new ObjectInfo([0, 1, 20], [0, 0, 0]),
-            new ObjectInfo([0, 1, 25], [0, 0, 0]),
-            new ObjectInfo([0, 1, 30], [0, 0, 0]),
-            new ObjectInfo([0, 1, 35], [0, 0, 0]),
-            new ObjectInfo([0, 1, 40], [0, 0, 0]),
-            new ObjectInfo([0, 1, 45], [0, 0, 0]),
-            new ObjectInfo([0, 1, 50], [0, 0, 0]),
-            new ObjectInfo([0, 1, 55], [0, 0, 0]),
-            new ObjectInfo([0, 1, 60], [0, 0, 0]),
-            new ObjectInfo([0, 1, 65], [0, 0, 0]),
-            new ObjectInfo([0, 1, 70], [0, 0, 0]),
-            new ObjectInfo([0, 1, 75], [0, 0, 0]),
-            new ObjectInfo([0, 1, 80], [0, 0, 0]),
-            new ObjectInfo([0, 1, 85], [0, 0, 0]),
-            new ObjectInfo([0, 1, 90], [0, 0, 0]),
-            new ObjectInfo([0, 1, 95], [0, 0, 0]),
-            new ObjectInfo([0, 1, 100], [0, 0, 0]),
-            new ObjectInfo([0, 1, 105], [0, 0, 0])
+            new ObjectInfo([0, 0.5, 10], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 20], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 28], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 35], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 40], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 45], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 53], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 60], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 67], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 74], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 80], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 85], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 92], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 98], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 105], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 120], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 122], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 123], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 127], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 130], [0, 0, 0])
         ];
     }
 

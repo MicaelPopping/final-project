@@ -3,7 +3,7 @@ class Sphere {
     constructor(gl) {
 
         twgl.setAttributePrefix("a_");
-        this.bufferInfo = flattenedPrimitives.createSphereBufferInfo(gl, 0.3, 12, 6);
+        this.bufferInfo = flattenedPrimitives.createSphereBufferInfo(gl, 0.5, 12, 6);
         this.programInfo = twgl.createProgramInfo(gl, [vertexShaderSource, fragmentShaderSource]);
         this.vao = twgl.createVAOFromBufferInfo(gl, this.programInfo, this.bufferInfo);
         this.gl = gl;
@@ -14,11 +14,28 @@ class Sphere {
         };
 
         this.object = null;
+        this.speed = 1;
+        this.animation = null;
     }
 
     start() {
 
         this.object = new ObjectInfo([0, 1, 5], [0, 0, 90]);
+    }
+
+    process(then, deltaTime) {
+
+        if(this.animation != null) {
+
+            
+            this.object.translate[1] = 2;
+            this.object.translate[2] += deltaTime * 10;
+            this.object.rotate[0] += deltaTime * 300;
+            return;
+        }
+
+        this.object.translate[2] += deltaTime * 10;
+        this.object.rotate[0] += deltaTime * 300;
     }
 
     computeMatrix(viewProjectionMatrix) {
@@ -45,5 +62,11 @@ class Sphere {
 
         twgl.setUniforms(this.programInfo, this.uniforms);
         twgl.drawBufferInfo(gl, this.bufferInfo);
+    }
+
+    startJumpAnimation(then) {
+        
+        if(this.animation == null)
+            this.animation = new JumpAnimation(5, 2, 10, then);  
     }
 }

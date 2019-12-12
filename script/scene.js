@@ -55,11 +55,10 @@ class Scene {
 
     processModels() {
 
-        // Lógica do jogo.
-        const sphere = this.sphere.object;
+        // Processamento dos objetos. &  Lógica do jogo.
+        this.sphere.process(this.then, this.deltaTime);
         
-        sphere.translate[2] += this.deltaTime * 10;
-        sphere.rotate[0] += this.deltaTime * 300;
+        
     }
 
     processCamera() {
@@ -75,7 +74,13 @@ class Scene {
 
     processInput(key) {
 
-        if(key == '1')
+        if(key == ' ') {
+
+            console.log('Pegou espaço.');
+            this.sphere.startJumpAnimation(this.then);
+        }
+
+        else if(key == '1')
             this.current_camera = 1;
 
         else if(key == '2')

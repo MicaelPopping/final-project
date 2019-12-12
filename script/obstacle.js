@@ -14,7 +14,6 @@ class Obstacle {
         };
 
         this.object = null;
-        this.index = 0;
     }
 
     start() {
@@ -39,7 +38,7 @@ class Obstacle {
             new ObjectInfo([0, 0.5, 137], [0, 0, 0]),
             new ObjectInfo([0, 0.5, 142], [0, 0, 0]),
             new ObjectInfo([0, 0.5, 150], [0, 0, 0]),
-            new ObjectInfo([0, 0.5, 157], [0, 0, 0]),
+            new ObjectInfo([0, 0.5, 157], [0, 0, 0])
         ];
     }
 
@@ -60,7 +59,7 @@ class Obstacle {
         gl.useProgram(this.programInfo.program);
         gl.bindVertexArray(this.vao);
 
-        for(let i = this.index; i < this.object.length; i++) {
+        for(let i = 0; i < this.object.length; i++) {
             this.uniforms.u_matrix = this.computeMatrix(viewProjectionMatrix, this.object[i]);
 
             twgl.setUniforms(this.programInfo, this.uniforms);

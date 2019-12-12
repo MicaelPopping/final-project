@@ -21,6 +21,7 @@ class Sphere {
     start() {
 
         this.object = new ObjectInfo([0, 0.3, 5], [0, 0, 90]);
+        this.animation = null;
     }
 
     process(deltaTime, then) {

@@ -63,9 +63,8 @@ class Scene {
         // Verificando colisões.
         let obstacles = this.obstacle.object;
         let sphere = this.sphere.object;
-        let index = this.obstacle.index;
 
-        for(let i = index; i < obstacles.length; i++)  {
+        for(let i = 0; i < obstacles.length; i++)  {
 
             let obstacle = obstacles[i];
             let box = [obstacle.translate[2] - 0.5, obstacle.translate[1] + 0.5, obstacle.translate[2] + 0.5];
@@ -73,10 +72,16 @@ class Scene {
             if(sphere.translate[2] > box[0] && sphere.translate[1] < box[1] && sphere.translate[2] < box[2]) {
 
                 this.playing = false;
-                document.getElementById("info").innerHTML = "<h1>Você Perdeu!\nPressione enter para jogar novamente.<h1>";
+                document.getElementById("info").innerHTML = "<h1>Você Perdeu!<h1><p>Pressione enter para jogar novamente.<p>";
                 this.sphere.start();
-                this.sphere.animation = null;
             }
+        }
+
+        if(sphere.translate[2] > (obstacles[obstacles.length - 1].translate[2] + 5)) {
+            this.playing = false;
+            this.sphere.start();
+            document.getElementById("info").innerHTML = "<h1>Você Venceu!<h1><p>Pressione enter para jogar novamente.<p>";
+                
         }
     }
 

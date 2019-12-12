@@ -10,10 +10,18 @@ canvas {
   display: block;
 }
 
-#info {
+#info h1 {
 
   font-size: 24;
   color: red;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+#info p {
+
+  font-size: 16;
+  color: blue;
   margin-left: auto;
   margin-top: auto;
 }
